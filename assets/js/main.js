@@ -1,5 +1,35 @@
 "use strict";
 
+const testData = [
+  {
+    desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit, imperdiet quam nibh metus maecenas lacus, aliquam purus malesuada lacinia in lectus.",
+    deadline: "2023-04-01T08:30",
+    done: false,
+    createdAt: 1680563185,
+  },
+  {
+    desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit elementum non nibh, magna tempor nisl ad maecenas senectus mollis metus felis.",
+    deadline: "2023-05-01T08:30",
+    done: true,
+    createdAt: 1680569854,
+  },
+  {
+    desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit pretium nec ad, molestie cum sociosqu lobortis interdum eros sem metus et.",
+    deadline: "2023-06-01T08:30",
+    done: false,
+    createdAt: 1680547854,
+  },
+  {
+    desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit, quis porta cubilia inceptos lobortis volutpat, nullam euismod rutrum feugiat semper consequat.",
+    deadline: "2023-07-01T08:30",
+    done: true,
+    createdAt: 1680589653,
+  },
+];
+
+let tasksArr = JSON.parse(sessionStorage.getItem("tasks")) || [...testData];
+console.log(tasksArr);
+
 const addSessionStorage = (key, value) =>
   sessionStorage.setItem(key, JSON.stringify(value));
 
@@ -27,8 +57,6 @@ const getCurrentDate = function () {
 
   return currentDate;
 };
-
-let tasksArr = JSON.parse(sessionStorage.getItem("tasks")) || [];
 
 const newTaskForm = document.querySelector(".new-task-form");
 const newTaskInput = document.querySelector(".new-task-input");
@@ -210,10 +238,10 @@ const doSort = function () {
   }
 
   function doSortByDeadline(a, b) {
-    if (new Date(a.deadline).getTime() < new Date(b.deadline).getTime()) {
+    if (new Date(a.deadline).getTime() > new Date(b.deadline).getTime()) {
       return 1;
     } else if (
-      new Date(b.deadline).getTime() < new Date(a.deadline).getTime()
+      new Date(b.deadline).getTime() > new Date(a.deadline).getTime()
     ) {
       return -1;
     } else {
