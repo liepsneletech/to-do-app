@@ -15,6 +15,7 @@ Design: created by myself
 ## 🎯 Project features/goals
 
 -   add/remove/sort todos
+-   session storage
 -   data inputs
 -   responsive design
 
