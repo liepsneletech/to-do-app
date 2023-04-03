@@ -39,7 +39,7 @@ newTaskForm.addEventListener("submit", (e) => {
 
   const taskObj = {
     desc: e.target.elements.desc.value,
-    deadline: e.target.elements.deadline.value,
+    deadline: e.target.elements.deadline.value || "",
     done: false,
     createdAt: new Date().getTime(),
   };
@@ -95,9 +95,12 @@ function displayTasks() {
     const leftMin = Math.floor(
       timeLeftInMin - leftDays * 24 * 60 - leftHours * 60
     );
-    taskTimeLeft.innerText = `Time left ${leftDays < 0 ? 0 : leftDays} ${
-      leftDays === 1 ? "day" : "days"
-    } ${leftHours} hr ${leftMin} min`;
+
+    if (taskObj.deadline !== "") {
+      taskTimeLeft.innerText = `Time left ${leftDays < 0 ? 0 : leftDays} ${
+        leftDays === 1 ? "day" : "days"
+      } ${leftHours} hr ${leftMin} min`;
+    }
 
     taskDelete.appendChild(taskDeleteImg);
 
