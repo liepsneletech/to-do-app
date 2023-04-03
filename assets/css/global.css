@@ -1,0 +1,130 @@
+/* ROOT COLORS */
+
+:root {
+  --white: #fff;
+  --black: #444;
+  --milk: #f5f3e6;
+  --light-gray: #bbb;
+  --medium-gray: #444;
+  --yellow: #fcc863;
+  --orange: #fd9456;
+  --bright-orange: #fe6f4f;
+}
+
+/* CSS RESET */
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body,
+body * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Garamond", sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 6rem;
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+button {
+  font-family: "Garamond", sans-serif;
+  background: none;
+  border: 0;
+}
+
+input,
+select {
+  font-family: "Garamond", sans-serif;
+  font-size: 1.5rem;
+  border: none;
+  padding: 1.5rem 2.5rem;
+  border-radius: 2.5rem;
+}
+
+select {
+  padding: 1rem 2rem;
+  background: var(--orange);
+  filter: brightness(90%);
+  color: var(--black);
+}
+
+input::placeholder {
+  color: var(--light-gray);
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #fe6f4fd7;
+}
+
+/* REUSABLE */
+
+.full-width {
+  width: 100%;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+.primary-heading {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn {
+  padding: 1.5rem 2.5rem;
+  border-radius: 2.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(110%);
+}
+
+.btn-black {
+  background: var(--black);
+}
+
+.btn-gray {
+  background: var(--light-gray);
+}

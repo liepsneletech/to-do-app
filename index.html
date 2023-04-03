@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="./assets/css/global.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <!-- scripts -->
+    <script src="./assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <!-- HEADER-start -->
+    <header class="main-header">
+      <div class="container">
+        <h1 class="primary-heading">To-Do App</h1>
+        <form class="new-task-form">
+          <input
+            name="desc"
+            type="text"
+            placeholder="Describe your task..."
+            maxlength="160"
+            class="new-task-input full-width"
+          />
+          <input
+            name="deadline"
+            type="datetime-local"
+            title="Choose task date"
+            min=""
+            class="new-task-deadline"
+          />
+          <button type="submit" class="new-task-submit btn btn-black">
+            <span class="plus">+</span> Add
+          </button>
+        </form>
+      </div>
+
+      <div class="sort-container">
+        <div class="container">
+          <div class="sort-box">
+            <label class="sort-label" for="sort">Sort by:</label>
+            <select name="sort" id="sort" class="sort">
+              <option value="recently-added" selected>Recently added</option>
+              <option value="deadline">Deadline</option>
+              <option value="recently-completed">Recently completed</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- HEADER-end -->
+
+    <main class="main">
+      <!-- TASK-LIST-start -->
+      <section class="task-list container"></section>
+      <!-- TASK-LIST-end -->
+    </main>
+    <!-- MODAL-start -->
+    <div class="modal-container"></div>
+    <!-- MODAL-end -->
+  </body>
+</html>

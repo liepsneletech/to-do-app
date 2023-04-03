@@ -1,0 +1,46 @@
+.main-header {
+  background: var(--orange);
+  padding-top: 5rem;
+}
+
+.new-task-form {
+  display: flex;
+  gap: 2rem;
+}
+
+.new-task-deadline {
+  width: 27rem;
+  color: var(--medium-gray);
+}
+
+.new-task-submit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+}
+
+.plus {
+  font-size: 2rem;
+}
+
+.sort-container {
+  background: var(--orange);
+  filter: brightness(115%);
+  padding: 2rem;
+  margin-top: 3.5rem;
+}
+
+.sort-box {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sort-label {
+  color: var(--black);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+}

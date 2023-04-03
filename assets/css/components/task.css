@@ -1,0 +1,52 @@
+.task {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 2.5rem;
+  display: grid;
+  grid-template-columns: 4% 60% auto 5%;
+  align-items: center;
+  gap: 3rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.task.task-done {
+  text-decoration: line-through;
+}
+
+.task-checkbox[type="checkbox"] {
+  background-image: url("../../icons/check-icon.svg");
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.task-checkbox[type="checkbox"]:checked {
+  background-image: url("../../icons/checked-icon.svg");
+}
+
+.task-checkbox[type="checkbox"],
+.task-checkbox[type="checkbox"]:checked {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.task-checkbox[type="checkbox"]:focus {
+  box-shadow: none;
+}
+
+.task-desc {
+  color: var(--medium-gray);
+}
+
+.delete-btn {
+  justify-self: end;
+}
+
+.delete-icon {
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  filter: saturate(1.8) brightness(90%);
+}
