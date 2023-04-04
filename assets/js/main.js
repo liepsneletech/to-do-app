@@ -71,7 +71,7 @@ newTaskForm.addEventListener("submit", (e) => {
     createdAt: new Date().getTime(),
   };
 
-  if (taskObj.desc != "") {
+  if (taskObj.desc !== "") {
     tasksArr.push(taskObj);
     addSessionStorage("tasks", tasksArr);
     displayTasks();
@@ -261,7 +261,9 @@ const doSort = function () {
 
 const showAlert = function (alertClass, alertContent) {
   const taskList = document.querySelector(".task-list");
-  const alert = createDomEl("p", [alertClass], {}, alertContent);
+  const alertMessage = createDomEl("p", [alertClass], {}, alertContent);
 
-  return alert != null ? taskList.prepend(alert) : null;
+  taskList.prepend(alertMessage);
+
+  return alertMessage;
 };
