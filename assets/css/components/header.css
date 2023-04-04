@@ -5,12 +5,25 @@
 
 .new-task-form {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
+@media (min-width: 992px) {
+  .new-task-form {
+    flex-wrap: nowrap;
+  }
+}
+
 .new-task-deadline {
-  width: 27rem;
+  width: 100%;
   color: var(--medium-gray);
+}
+
+@media (min-width: 576px) {
+  .new-task-deadline {
+    width: 27rem;
+  }
 }
 
 .new-task-submit {
@@ -43,4 +56,13 @@
   text-transform: uppercase;
   font-size: 1.4rem;
   font-weight: 600;
+}
+
+@media (max-width: 400px) {
+  .sort {
+    width: 100%;
+  }
+  .sort-label {
+    display: none;
+  }
 }

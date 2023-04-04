@@ -1,12 +1,18 @@
 .task {
+  display: grid;
+  grid-template-columns: 1;
+  align-items: center;
+  gap: 3rem;
   background-color: var(--white);
   padding: 2rem;
   border-radius: 2.5rem;
-  display: grid;
-  grid-template-columns: 4% 60% auto 5%;
-  align-items: center;
-  gap: 3rem;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@media (min-width: 992px) {
+  .task {
+    grid-template-columns: 4% 60% auto 5%;
+  }
 }
 
 .task.task-done {
@@ -14,9 +20,22 @@
 }
 
 .task-checkbox[type="checkbox"] {
+  justify-self: end;
+  grid-column: 1/2;
+  grid-row: 3/4;
   background-image: url("../../icons/check-icon.svg");
+  margin-right: 5rem;
+  margin-bottom: 2px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .task-checkbox[type="checkbox"] {
+    justify-self: start;
+    grid-row-start: unset;
+    grid-row-end: unset;
+  }
 }
 
 .task-checkbox[type="checkbox"]:checked {
@@ -41,6 +60,16 @@
 
 .delete-btn {
   justify-self: end;
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+
+@media (min-width: 992px) {
+  .delete-btn {
+    justify-self: end;
+    grid-column: 4/5;
+    grid-row: 1/2;
+  }
 }
 
 .delete-icon {
