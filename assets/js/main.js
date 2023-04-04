@@ -60,6 +60,7 @@ const getCurrentDate = function () {
 const newTaskForm = document.querySelector(".new-task-form");
 const newTaskInput = document.querySelector(".new-task-input");
 const newTaskDeadline = document.querySelector(".new-task-deadline");
+const alertMessage = document.querySelector(".error");
 
 newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -263,7 +264,9 @@ const showAlert = function (alertClass, alertContent) {
   const taskList = document.querySelector(".task-list");
   const alertMessage = createDomEl("p", [alertClass], {}, alertContent);
 
-  taskList.prepend(alertMessage);
-
-  return alertMessage;
+  if (taskList.querySelector(".error") !== null) {
+    return;
+  } else {
+    return taskList.prepend(alertMessage);
+  }
 };
