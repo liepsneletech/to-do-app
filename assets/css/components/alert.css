@@ -1,0 +1,15 @@
+.error,
+.success {
+  padding: 1rem 3rem;
+  color: var(--white);
+  border-radius: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.error {
+  background: var(--red);
+}
+
+.success {
+  background: var(--green);
+}

@@ -28,7 +28,6 @@ const testData = [
 ];
 
 let tasksArr = JSON.parse(sessionStorage.getItem("tasks")) || [...testData];
-console.log(tasksArr);
 
 const addSessionStorage = (key, value) =>
   sessionStorage.setItem(key, JSON.stringify(value));
@@ -66,21 +65,23 @@ newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const taskObj = {
-    desc: e.target.elements.desc.value,
+    desc: e.target.elements.desc.value || "",
     deadline: e.target.elements.deadline.value || "",
     done: false,
     createdAt: new Date().getTime(),
   };
 
-  tasksArr.push(taskObj);
-
-  addSessionStorage("tasks", tasksArr);
+  if (taskObj.desc != "") {
+    tasksArr.push(taskObj);
+    addSessionStorage("tasks", tasksArr);
+    displayTasks();
+  } else {
+    showAlert("error", "Please describe your task!");
+  }
 
   e.target.reset();
 
   newTaskInput.focus();
-
-  displayTasks();
 });
 
 window.addEventListener("load", () => {
@@ -139,7 +140,7 @@ function displayTasks() {
       ? taskList.prepend(taskItem)
       : taskList.append(taskItem);
 
-    taskCheckbox.addEventListener("click", function (e) {
+    taskCheckbox.addEventListener("change", function (e) {
       taskObj.done = e.target.checked;
 
       if (taskObj.done) {
@@ -151,7 +152,9 @@ function displayTasks() {
         taskCheckbox.removeAttribute("checked", "");
         taskList.prepend(taskItem);
       }
+
       addSessionStorage("tasks", tasksArr);
+      displayTasks();
     });
 
     taskDelete.addEventListener("click", (e) => {
@@ -193,6 +196,8 @@ function displayTasks() {
         addSessionStorage("tasks", tasksArr);
         displayTasks();
         newTaskInput.focus();
+
+        showAlert("success", "The task was removed successfully.");
       });
 
       cancelBtn.addEventListener("click", (e) => {
@@ -207,10 +212,6 @@ function displayTasks() {
 const doSort = function () {
   const sortingInput = document.querySelector(".sort");
   let sortingInputValue = document.querySelector(".sort").value;
-
-  tasksArr.sort(doSortByDate);
-  addSessionStorage("tasks", tasksArr);
-  displayTasks();
 
   sortingInput.addEventListener("change", (e) => {
     sortingInputValue = sortingInput.value;
@@ -256,4 +257,11 @@ const doSort = function () {
 
     return tasksArr;
   }
+};
+
+const showAlert = function (alertClass, alertContent) {
+  const taskList = document.querySelector(".task-list");
+  const alert = createDomEl("p", [alertClass], {}, alertContent);
+
+  return alert != null ? taskList.prepend(alert) : null;
 };
